@@ -18,7 +18,8 @@ background-color: #EEF2F5;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   background-color: white;
-  
+  width: 40%;
+  height: 40%;
 }
 .block *{
   font-size: 20px;
@@ -30,7 +31,7 @@ background-color: #EEF2F5;
 }
 .block input{
   margin-top: 20px;
-
+  width: 90%;
 }
 .block h2{
   text-align: center;
@@ -39,6 +40,7 @@ background-color: #EEF2F5;
   background-color: #265cff;
   border-radius: 15px 15px 0 0;
   padding: 20px;
+  
 }
 .block button{
   margin-top: 15px;
@@ -53,6 +55,7 @@ background-color: #EEF2F5;
 .block input,button{
   padding: 10px;
   margin-right: 10px;
+ 
 }
 .block input,button:focus{
 outline: none;

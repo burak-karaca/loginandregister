@@ -1,6 +1,6 @@
 import React from 'react';
 import {useFormik} from 'formik';
-
+import * as Yup from 'yup';
 const initialValues = {
   email: '',
   password: ''
@@ -21,11 +21,20 @@ const validate = (values) => {
   return errors;
 };
 
+const validationSchema = Yup.object({
+    password: Yup.string()
+        .oneOf([Yup.ref('password'), null]).min(8, 'Error')
+        .required('Required'),
+    email:Yup.string()
+        .email('invalid email format')
+        .required('Required')
+})
+
 function Main() {
   const formik = useFormik({
     initialValues,
     onSubmit,
-    validate
+    validationSchema
   });
 
   console.log('form errors', formik.touched);
@@ -48,7 +57,7 @@ function Main() {
                   value={formik.values.email}
                   onBlur={formik.handleBlur}
                 ></input>
-                {formik.errors.email ? (
+                {formik.errors.email && formik.touched.email ? (
                   <div className="form-validation">{formik.errors.email} </div>
                 ) : null}
               </div>
@@ -62,7 +71,7 @@ function Main() {
                   value={formik.values.password}
                   onBlur={formik.handleBlur}
                 ></input>
-                {formik.errors.password ? (
+                {formik.errors.password && formik.touched.password ? (
                   <div className="form-validation">
                     {formik.errors.password}
                   </div>
