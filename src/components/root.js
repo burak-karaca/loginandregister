@@ -1,43 +1,44 @@
 import React from 'react';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
+import {useHistory} from 'react-router-dom';
 const initialValues = {
   email: '',
   password: ''
 };
-const onSubmit = (values) => {
-  console.log('form data', values);
-};
-const validate = (values) => {
-  let errors = {};
-  if (!values.email) {
-    errors.email = 'Required';
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'invalid email format';
-  }
-  if (!values.password) {
-    errors.password = 'Required';
-  }
-  return errors;
-};
+
+// const validate = (values) => {
+//   let errors = {};
+//   if (!values.email) {
+//     errors.email = 'Required';
+//   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+//     errors.email = 'invalid email format';
+//   }
+//   if (!values.password) {
+//     errors.password = 'Required';
+//   }
+//   return errors;
+// };
 
 const validationSchema = Yup.object({
-    password: Yup.string()
-        .oneOf([Yup.ref('password'), null]).min(8, 'Error')
-        .required('Required'),
-    email:Yup.string()
-        .email('invalid email format')
-        .required('Required')
-})
+  password: Yup.string()
+    .oneOf([Yup.ref('password'), null])
+    .min(8, 'Error')
+    .required('Required'),
+  email: Yup.string().email('invalid email format').required('Required')
+});
 
 function Main() {
+  const history = useHistory();
+  const onSubmit = (values) => {
+    history.push('/users');
+  };
   const formik = useFormik({
     initialValues,
     onSubmit,
     validationSchema
   });
 
-  console.log('form errors', formik.touched);
   return (
     <div>
       <div className="page">
@@ -79,7 +80,8 @@ function Main() {
               </div>
 
               <br></br>
-              <button type="submit">Login</button>
+                  <div className="button"><button type="submit">Login</button></div>
+              
             </form>
           </div>
         </div>

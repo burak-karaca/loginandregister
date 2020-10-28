@@ -1,7 +1,7 @@
 *{
   margin: 0;
   padding: 0;
-  font: 700 10px "PT Sans",Helvetica,sans-serif;
+  font: 700 12px "PT Sans",Helvetica,sans-serif;
 }
 .page{
 width: 100vw;
@@ -10,7 +10,7 @@ background-color: #EEF2F5;
 
 }
 .block{
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -18,20 +18,18 @@ background-color: #EEF2F5;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   background-color: white;
-  width: 40%;
-  height: 40%;
+ 
 }
 .block *{
   font-size: 20px;
-}
-.header{
 }
 .form{
   padding: 20px;
 }
 .block input{
-  margin-top: 20px;
-  width: 90%;
+  margin-top: 30px;
+  width: 95%;
+  
 }
 .block h2{
   text-align: center;
@@ -39,18 +37,25 @@ background-color: #EEF2F5;
   color: white;
   background-color: #265cff;
   border-radius: 15px 15px 0 0;
-  padding: 20px;
+  padding: 3rem 14rem 3rem 14rem;
   
 }
-.block button{
-  margin-top: 15px;
+.button{
   width: 100%;
+  text-align: center;
+
+}
+.block button{
+  text-align: center;
+  margin-top: 10px;
+  width: 35%;
   color: #fff;
   background-color: #265cff;
   border-color:#265cff;
   padding-left: 20px;
   padding-right: 20px;
-  border-radius: 10px;
+  border-radius: 10px;  
+  
 }
 .block input,button{
   padding: 10px;
@@ -60,7 +65,81 @@ background-color: #EEF2F5;
 .block input,button:focus{
 outline: none;
 }
+.block button{
+  cursor: pointer;
+}
 .form-validation{
   color: red;
   margin-top: 10px;
+}
+.navbar{
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  
+  border:none
+}
+img{
+max-width: 12%;
+}
+.card{
+padding: 20px;
+margin-bottom: 20px;
+
+}
+.cards{
+ margin-left: 10%;
+
+}
+.card-body{
+  margin: 20px;
+  float:left;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+  width: 25%;
+  border-radius: 15px;
+}
+.card-body ul{
+  padding: 20px;
+}
+.card-body li{
+  list-style-type: none;
+  padding-top: 5px;
+}
+.card-body li span{
+  color: #265cff;
+}
+.buttonDiv{
+ height: 100%;
+ width: 20%;
+ float: right;
+}
+.buttonDiv form{
+text-align: center;
+padding-top: 20px;
+}
+.navbar form button{
+  background-color:#1F87A7;
+  border:none;
+  color: white;
+  padding: 15px 25px 15px 25px;
+  margin-top: 5%;
+}
+.navbar form button:hover{
+  cursor: pointer;
+  opacity: 0.3;
+  transition: 1s opacity;
+}
+.card-body li:first-child{
+  background-color:#0B476F;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+.card-body ul li:first-child{
+  background-color:#1F87A7;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+.card-body li:first-child span:first-child{
+  color: white;
 }
